@@ -1872,23 +1872,22 @@ editor = {
 
             // see if we can snap to a corner, i.e. an edge intersection
             if (candidates.length >= 2 && candidates[0].isLine && candidates[1].isLine) {
-                console.log(candidates.slice(0,2))
                 var inters = editor._intersect_infinite(
                     [candidates[0].edgeStart, candidates[0].edgeEnd],
                     [candidates[1].edgeStart, candidates[1].edgeEnd]
-                )
+                );
                 if (inters) {
-                    intersMap = editor.map.latLngToContainerPoint(inters)
+                    intersMap = editor.map.latLngToContainerPoint(inters);
                     var distance = Math.sqrt(
                         Math.pow(intersMap.x - mapPoint.x, 2) +
                         Math.pow(intersMap.y - mapPoint.y, 2)
-                    )
+                    );
                     if (distance < editor._snap_distance) {
                         best = {
                             latlng: inters,
                             distance: distance,
                             referenceVertex: inters,
-                        }
+                        };
                     }
                 }
             }
